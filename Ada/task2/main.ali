@@ -1,0 +1,45 @@
+V "GNAT Lib v4.6"
+M P W=b
+P SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U main%b		main.adb		383cf9aa NE OO SU
+W sq_pack%s		sq_pack.adb		sq_pack.ali
+W sq_pack.rec_pack%s	sq_pack-rec_pack.adb	sq_pack-rec_pack.ali
+
+D ada.ads		20070406091342 3ffc8e18
+D a-except.ads		20090727140100 0c711ac9
+D a-stream.ads		20090409150019 2ca4ee37
+D a-tags.ads		20101021101406 c7695348
+D a-unccon.ads		20070406091342 f9eb8f06
+D main.adb		20160921110933 9fbe6bf5
+D sq_pack.ads		20160914103713 c9f2676b
+D sq_pack-rec_pack.ads	20160914103714 6e70f534
+D system.ads		20140416172229 23e1f70b
+D s-exctab.ads		20090417131547 66e51330
+D s-finroo.ads		20090409150019 dbb860c9
+D s-parame.ads		20091130110856 9c5d83fa
+D s-secsta.ads		20090707124243 eea35a36
+D s-soflin.ads		20090729085153 9414c974
+D s-stache.ads		20090417130712 596fc1b4
+D s-stalib.ads		20101021102512 c4241c00
+D s-stoele.ads		20090417130712 facd7d98
+D s-stoele.adb		20100617152355 afc5dc80
+D s-stratt.ads		20100909123135 aedef97e
+D s-traent.ads		20090417130712 5221ee41
+D s-unstyp.ads		20090409150019 6ae15c76
+X 6 main.adb
+4U11*Main 4b11 13l5 13t9
+5r4 Sq{7|2R9} 9m12 11r13
+6r4 Rec{8|2R9} 10m12 12r13
+X 7 sq_pack.ads
+1K9*Sq_Pack 6|1w6 1r15 2r5 2r14 7|18e12
+2R9*Square 6|5r9 7|17e17
+3U14*Init 6|9s7
+12U14*Print 6|11s7
+X 8 sq_pack-rec_pack.ads
+1K17*Rec_Pack 6|1w23 2r22 8|21e21
+2R9*Rectangle<7|2R9> 6|6r10 8|20e20
+5U14*Init 6|10s7
+14U14*Print<7|12p14> 6|12s7
+
