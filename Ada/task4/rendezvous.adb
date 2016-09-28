@@ -3,17 +3,6 @@ use Text_IO, Ada.Integer_Text_IO;
 
 procedure RendezVous is
 
-    type MatR is array (Integer range <>, Integer range <>) of Integer;
-       M : MatR(1..7,1..5) := (
-          (1,2,3,4,5),
-          (6,7,8,9,10),
-          (11,12,13,14,15),
-          (16,17,18,19,20),
-          (21,22,23,24,25),
-          (26,27,28,29,30),
-          (31,32,33,34,35)
-       );
-
     -- TASK INTERFACE
     task MaxElementInRow is
         entry TotalRows(N : in Integer); -- amount of indexes of rows in vector
@@ -30,12 +19,21 @@ procedure RendezVous is
         r : Integer;
         c : Integer;
         max : Integer;
+        type MatR is array (Integer range <>, Integer range <>) of Integer;
+        M : MatR(1..7,1..5) := (
+                              (1,2,3,4,5),
+                              (6,7,8,9,10),
+                              (11,12,13,14,15),
+                              (16,17,18,19,20),
+                              (21,22,23,24,25),
+                              (26,27,28,29,30),
+                              (31,32,33,34,35)
+                           );
     begin
         c := 0;
         accept TotalRows (N : in Integer) do
             tRows := N;
         end TotalRows;
-
         loop
             accept Row (i : in Integer) do
                 r := i;
@@ -55,18 +53,19 @@ procedure RendezVous is
     task body ListOfRows is
         res : Integer;
         iRow : Integer;
+        Type Vec is Array (Integer range <>) of Integer;
+        v : Vec (1..4) := (1,4,7,2);
     begin
-        iRow := M'First;
-        MaxElementInRow.TotalRows(M'Last);
-
+        iRow := v'First;
+        MaxElementInRow.TotalRows(v'Length);
         loop
-            MaxElementInRow.Row(iRow);
+            MaxElementInRow.Row(v(iRow));
             accept Result (Max : in Integer) do
                 res := Max;
             end Result;
-            Put_line("Row" & Integer'Image(iRow) &  "Maximal element" & Integer'Image(res));
+            Put_line("Row" & Integer'Image(v(iRow)) &  " Maximal element" & Integer'Image(res));
             iRow := iRow + 1;
-            exit when iRow > M'Last;
+            exit when iRow > v'Length;
         end loop;
 
     end ListOfRows;
