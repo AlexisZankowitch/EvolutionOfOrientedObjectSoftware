@@ -1,3 +1,8 @@
-*
-!*.adb
-!*.ads
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+
+#intellij
+/.idea/
