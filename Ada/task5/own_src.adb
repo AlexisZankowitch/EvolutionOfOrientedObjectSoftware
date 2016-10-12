@@ -1,7 +1,7 @@
 with Text_IO, Ada.Integer_Text_IO;
 use Text_IO, Ada.Integer_Text_IO;
 
-procedure RendezVous is
+procedure own_src is
 
     -- TASK INTERFACE
     task MaxElementInRow is
@@ -34,19 +34,23 @@ procedure RendezVous is
         accept TotalRows (N : in Integer) do
             tRows := N;
         end TotalRows;
-        loop
-            accept Row (i : in Integer) do
-                r := i;
-            end Row;
-            max := M(r,1);
-            for i in M'Range(2) loop
-                if (M(r,i) > max) then
-                    max := M(r,i);
-                end if;
-            end loop;
-            ListOfRows.Result(max);
-            c := c + 1;
-            exit when c >= tRows;
+        while (c < tRows) loop
+            select
+                accept Row (i : in Integer) do
+                    r := i;
+                end Row;
+                max := M(r,1);
+                for i in M'Range(2) loop
+                    if (M(r,i) > max) then
+                        max := M(r,i);
+                    end if;
+                end loop;
+                ListOfRows.Result(max);
+                c := c + 1;
+            or
+                delay 1.0;
+                Put("#");
+            end select;
         end loop;
     end MaxElementInRow;
 
@@ -54,18 +58,24 @@ procedure RendezVous is
         res : Integer;
         iRow : Integer;
         Type Vec is Array (Integer range <>) of Integer;
-        v : Vec (1..4) := (1,4,7,2);
+        v : Vec (1..7) := (2, 3, 6, 1, 5, 1, 4);
     begin
-        iRow := v'First;
-        MaxElementInRow.TotalRows(v'Length);
         loop
+            select
+                MaxElementInRow.TotalRows(v'Length);
+                Exit;
+            else
+                Put("*");
+            end select;
+        end loop;
+        iRow := v'First;
+        while (iRow <= v'Length) loop
             MaxElementInRow.Row(v(iRow));
             accept Result (Max : in Integer) do
                 res := Max;
             end Result;
             Put_line("Row" & Integer'Image(v(iRow)) &  " Maximal element" & Integer'Image(res));
             iRow := iRow + 1;
-            exit when iRow > v'Length;
         end loop;
 
     end ListOfRows;
@@ -73,4 +83,7 @@ procedure RendezVous is
 
 begin
     null;
-end RendezVous;
+end own_src;
+
+
+
