@@ -1,19 +1,21 @@
-package com.erasmus.task;
-
-import java.util.Arrays;
+package com.erasmus.task1;
 
 /**
  * Created by zankowitch on 26/10/16.
  */
 public class Firm {
     private String name;
-    private Employee[] employees;
-    private int total;
+    protected Employee[] employees;
+    protected int total;
 
     public Firm(String name, int total) {
         this.name = name;
         this.total = 0;
         this.employees = new Employee[total];
+    }
+
+    public Firm() {
+
     }
 
     public void addEmployee(Employee employee){

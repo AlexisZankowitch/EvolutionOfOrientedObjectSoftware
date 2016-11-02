@@ -1,4 +1,4 @@
-package com.erasmus.task;
+package com.erasmus.task1;
 
 /**
  * Created by zankowitch on 26/10/16.
