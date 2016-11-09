@@ -1,12 +1,9 @@
-package com.erasmus;
+package com.erasmus.task2;
 
-import com.erasmus.task1.Employee;
 import com.erasmus.task2.EmployeeComparable;
-import com.erasmus.task2.EmployeeGenericComparable;
-import com.erasmus.task2.FirmGenericList;
-import com.erasmus.task2.FirmList;
+import com.erasmus.task2.FirmComparator;
 
-public class MainTask2b {
+public class MainTask2a {
     public static void main(String[] args) {
         //Employee creation
         System.out.println('\n'+"Employee");
@@ -15,12 +12,9 @@ public class MainTask2b {
         EmployeeComparable e3 = new EmployeeComparable("Aldis","Zemzars",1200.0);
         System.out.println(e1);
 
-        /*
-         * ARRAY LIST
-         */
         //Firm creation
         System.out.println('\n'+"Firm");
-        FirmList f1 = new FirmList("VEF");
+        FirmComparator f1 = new FirmComparator("VEF",30);
         //Add employee to firm
         f1.addEmployee(e1);
         f1.addEmployee(e2);
@@ -37,5 +31,10 @@ public class MainTask2b {
         System.out.println("Descending: ");
         f1.sortSalariesDesc();
         System.out.println(f1);
+
+
+        //Exception handling
+        System.out.println("Exception handling");
+        f1.addEmployee(e1);
     }
 }

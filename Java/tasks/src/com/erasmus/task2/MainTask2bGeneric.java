@@ -1,4 +1,4 @@
-package com.erasmus;
+package com.erasmus.task2;
 
 
 import com.erasmus.task2.EmployeeGenericComparable;

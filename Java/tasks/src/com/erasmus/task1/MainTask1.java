@@ -1,4 +1,4 @@
-package com.erasmus;
+package com.erasmus.task1;
 
 import com.erasmus.task1.Employee;
 import com.erasmus.task1.Firm;
